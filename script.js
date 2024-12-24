@@ -10,10 +10,8 @@ function getComputerChoice() {
 			return "scissors";
 	}
 }
-console.log(getComputerChoice());
 
 function getHumanChoice() {
-	choice = prompt("'rock', 'paper', 'scissors'?");
-	return choice;
+	return prompt("'rock', 'paper', 'scissors'?");
 }
 console.log(getHumanChoice());
