@@ -1,3 +1,12 @@
+const buttons = document.querySelectorAll("button");
+
+for (const button of buttons) {
+	button.addEventListener("click", (e) => {
+		const humanSelection = e.target.value;
+		console.log(humanSelection);
+	});
+}
+
 function getComputerChoice() {
 	const random = Math.floor(Math.random() * 3 + 1);
 
@@ -48,7 +57,6 @@ function playRound(humanChoice, computerChoice) {
 	}
 }
 
-const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
