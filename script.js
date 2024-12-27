@@ -4,6 +4,10 @@ const result = document.querySelector("#result");
 let humanScore = 0;
 let computerScore = 0;
 
+score = document.createElement("p");
+updateScoreDisplay();
+result.appendChild(score);
+
 for (const button of buttons) {
 	button.addEventListener("click", (e) => {
 		const humanSelection = e.target.value;
@@ -59,6 +63,8 @@ function playRound(humanChoice, computerChoice) {
 		result.textContent = "It's a tie!";
 	}
 
+	updateScoreDisplay();
+
 	if (humanScore === 5 || computerScore === 5) {
 		const winner = document.createElement("p");
 
@@ -75,4 +81,8 @@ function playRound(humanChoice, computerChoice) {
 		humanScore = 0;
 		computerScore = 0;
 	}
+}
+
+function updateScoreDisplay() {
+	score.textContent = `Your score: ${humanScore} | Computer score: ${computerScore}`;
 }
