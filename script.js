@@ -11,6 +11,9 @@ result.appendChild(score);
 const roundWinner = document.createElement("p");
 result.appendChild(roundWinner);
 
+const winner = document.createElement("p");
+result.appendChild(winner);
+
 for (const button of buttons) {
 	button.addEventListener("click", (e) => {
 		const humanSelection = e.target.value;
@@ -69,20 +72,16 @@ function playRound(humanChoice, computerChoice) {
 	updateScoreDisplay();
 
 	if (humanScore === 5 || computerScore === 5) {
-		const winner = document.createElement("p");
-
 		if (humanScore > computerScore) {
 			winner.textContent = "You won the game!";
-		} else if (humanScore < computerScore) {
-			winner.textContent = "You lost the game.";
 		} else {
-			winner.textContent = "The game was tied.";
+			winner.textContent = "You lost the game.";
 		}
-
-		result.appendChild(winner);
 
 		humanScore = 0;
 		computerScore = 0;
+	} else {
+		winner.textContent = "";
 	}
 }
 
