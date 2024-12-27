@@ -4,7 +4,9 @@ const result = document.querySelector("#result");
 for (const button of buttons) {
 	button.addEventListener("click", (e) => {
 		const humanSelection = e.target.value;
-		console.log(humanSelection);
+		const computerSelection = getComputerChoice();
+
+		playRound(humanSelection, computerSelection);
 	});
 }
 
@@ -57,10 +59,6 @@ function playRound(humanChoice, computerChoice) {
 		result.textContent = "It's a tie!";
 	}
 }
-
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
 
 if (humanScore > computerScore) {
 	result.textContent = "You won the game!";
