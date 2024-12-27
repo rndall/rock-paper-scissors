@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll("button");
+const result = document.querySelector("#result");
 
 for (const button of buttons) {
 	button.addEventListener("click", (e) => {
@@ -44,16 +45,16 @@ function playRound(humanChoice, computerChoice) {
 		(humanChoiceLower === "scissors" && computerChoice === "paper")
 	) {
 		humanScore++;
-		console.log(`You win! ${humanChoiceTitle} beats ${computerChoiceTitle}`);
+		result.textContent = `You win! ${humanChoiceTitle} beats ${computerChoiceTitle}`;
 	} else if (
 		(computerChoice === "rock" && humanChoiceLower === "scissors") ||
 		(computerChoice === "paper" && humanChoiceLower === "rock") ||
 		(computerChoice === "scissors" && humanChoiceLower === "paper")
 	) {
 		computerScore++;
-		console.log(`You lose! ${computerChoiceTitle} beats ${humanChoiceTitle}`);
+		result.textContent = `You lose! ${computerChoiceTitle} beats ${humanChoiceTitle}`;
 	} else {
-		console.log("It's a tie!");
+		result.textContent = "It's a tie!";
 	}
 }
 
@@ -62,9 +63,9 @@ const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
 
 if (humanScore > computerScore) {
-	console.log("You won the game!");
+	result.textContent = "You won the game!";
 } else if (humanScore < computerScore) {
-	console.log("You lost the game.");
+	result.textContent = "You lost the game.";
 } else {
-	console.log("The game was tied.");
+	result.textContent = "The game was tied.";
 }
