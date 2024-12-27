@@ -60,13 +60,17 @@ function playRound(humanChoice, computerChoice) {
 	}
 
 	if (humanScore === 5 || computerScore === 5) {
+		const winner = document.createElement("p");
+
 		if (humanScore > computerScore) {
-			result.textContent += "You won the game!";
+			winner.textContent = "You won the game!";
 		} else if (humanScore < computerScore) {
-			result.textContent += "You lost the game.";
+			winner.textContent = "You lost the game.";
 		} else {
-			result.textContent += "The game was tied.";
+			winner.textContent = "The game was tied.";
 		}
+
+		result.appendChild(winner);
 
 		humanScore = 0;
 		computerScore = 0;
