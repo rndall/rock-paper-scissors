@@ -1,6 +1,9 @@
 const buttons = document.querySelectorAll("button");
 const result = document.querySelector("#result");
 
+let humanScore = 0;
+let computerScore = 0;
+
 for (const button of buttons) {
 	button.addEventListener("click", (e) => {
 		const humanSelection = e.target.value;
@@ -26,9 +29,6 @@ function getComputerChoice() {
 function getHumanChoice() {
 	return prompt("'rock', 'paper', 'scissors'?");
 }
-
-let humanScore = 0;
-let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
 	humanChoiceLower = humanChoice.toLowerCase();
@@ -67,5 +67,8 @@ function playRound(humanChoice, computerChoice) {
 		} else {
 			result.textContent += "The game was tied.";
 		}
+
+		humanScore = 0;
+		computerScore = 0;
 	}
 }
