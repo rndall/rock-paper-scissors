@@ -4,9 +4,12 @@ const result = document.querySelector("#result");
 let humanScore = 0;
 let computerScore = 0;
 
-score = document.createElement("p");
+const score = document.createElement("p");
 updateScoreDisplay();
 result.appendChild(score);
+
+const roundWinner = document.createElement("p");
+result.appendChild(roundWinner);
 
 for (const button of buttons) {
 	button.addEventListener("click", (e) => {
@@ -51,16 +54,16 @@ function playRound(humanChoice, computerChoice) {
 		(humanChoiceLower === "scissors" && computerChoice === "paper")
 	) {
 		humanScore++;
-		result.textContent = `You win! ${humanChoiceTitle} beats ${computerChoiceTitle}`;
+		roundWinner.textContent = `You win! ${humanChoiceTitle} beats ${computerChoiceTitle}`;
 	} else if (
 		(computerChoice === "rock" && humanChoiceLower === "scissors") ||
 		(computerChoice === "paper" && humanChoiceLower === "rock") ||
 		(computerChoice === "scissors" && humanChoiceLower === "paper")
 	) {
 		computerScore++;
-		result.textContent = `You lose! ${computerChoiceTitle} beats ${humanChoiceTitle}`;
+		roundWinner.textContent = `You lose! ${computerChoiceTitle} beats ${humanChoiceTitle}`;
 	} else {
-		result.textContent = "It's a tie!";
+		roundWinner.textContent = "It's a tie!";
 	}
 
 	updateScoreDisplay();
