@@ -58,12 +58,14 @@ function playRound(humanChoice, computerChoice) {
 	} else {
 		result.textContent = "It's a tie!";
 	}
-}
 
-if (humanScore > computerScore) {
-	result.textContent = "You won the game!";
-} else if (humanScore < computerScore) {
-	result.textContent = "You lost the game.";
-} else {
-	result.textContent = "The game was tied.";
+	if (humanScore === 5 || computerScore === 5) {
+		if (humanScore > computerScore) {
+			result.textContent += "You won the game!";
+		} else if (humanScore < computerScore) {
+			result.textContent += "You lost the game.";
+		} else {
+			result.textContent += "The game was tied.";
+		}
+	}
 }
